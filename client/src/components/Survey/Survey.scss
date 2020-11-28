@@ -1,0 +1,118 @@
+@import "src/styles/Variables";
+
+.survey {
+  label {
+    font-size: 1.2rem;
+  }
+
+  form, .outline {
+    margin-top: 5vw;
+    border: 1px dashed $primary-red;
+    padding: 20px;
+  }
+
+  .row {
+    padding: 0;
+  }
+
+  .buttons {
+    margin-top: 15px;
+  }
+
+  [type="radio"]:checked+span:after, [type="checkbox"].filled-in:checked+span:not(.lever):after {
+    border: 2px solid $primary-blue;
+    background-color: $primary-blue;
+  }
+
+  &-field{
+    .error{
+      border:1px solid $primary-red !important;
+      background-color: rgba(183, 28, 28, 0.07) !important;
+      box-shadow: 0 0 2px 0 $primary-red-semi !important;
+      padding: 10px;
+      font-size: 1rem;
+    }
+
+    .error-icon{
+      color: $primary-red;
+      position: absolute;
+      padding: 10px;
+      min-width: 40px;
+      min-height: 40px;
+      right: 1%;
+      top:5%;
+    }
+
+    .validation-message{
+      color: $primary-red !important;
+      padding: 0;
+      margin: 0;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.questions{
+  position: sticky;
+  top: 0;
+  button{
+    margin-bottom: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  margin-top: 5vw;
+  background-color: white;
+
+}
+
+.question{
+  border-bottom: 1px solid $primary-yellow !important;
+  padding: 20px 10px !important;
+}
+
+.survey-list, .reply{
+  border-bottom: 1px solid $primary-yellow !important;
+  border-top: 1px solid $primary-yellow !important;
+  padding: 20px 10px !important;
+  margin-top: 3px;
+}
+
+.donut{
+  padding: 20px 10px !important;
+  margin-top: 3px;
+}
+
+.chart{
+  svg{
+    width: 100%;
+  }
+  text{
+    font-size: 1.5rem;
+  }
+}
+
+.question-fill{
+  padding-bottom: 10px;
+}
+
+.success{
+  margin-top: 5vw;
+  border: 2px dashed $primary-blue;
+  padding: 20px 10px 50px;
+}
+
+.open-question-list{
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+@media (max-width: 426px) {
+  .survey {
+    form {
+      margin-top: 35vw;
+    }
+  }
+  .questions{
+    margin-top: 35vw;
+  }
+}

@@ -1,0 +1,76 @@
+@import "Variables";
+
+/* label color */
+.survey-field label {
+  color: #9e9e9e;
+}
+/* label focus color */
+.survey-field input[type=text]:not(.browser-default):focus:not([readonly]) + label {
+  color: #4f4f4f;
+}
+
+.survey-field input:not([type]),
+.survey-field input[type=text],
+.survey-field input[type=password],
+.survey-field input[type=email],
+.survey-field input[type=url],
+.survey-field input[type=time],
+.survey-field input[type=date],
+.survey-field input[type=datetime],
+.survey-field input[type=datetime-local],
+.survey-field input[type=tel],
+.survey-field input[type=number],
+.survey-field input[type=search],
+.survey-field textarea.materialize-textarea {
+  border: 1px solid $border-grey;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* label underline focus color */
+.survey-field input:not([type]):focus:not([readonly]),
+.survey-field input[type=text]:not(.browser-default):focus:not([readonly]),
+.survey-field input[type=password]:not(.browser-default):focus:not([readonly]),
+.survey-field input[type=email]:not(.browser-default):focus:not([readonly]),
+.survey-field input[type=url]:not(.browser-default):focus:not([readonly]),
+.survey-field input[type=time]:not(.browser-default):focus:not([readonly]),
+.survey-field input[type=date]:not(.browser-default):focus:not([readonly]),
+.survey-field input[type=datetime]:not(.browser-default):focus:not([readonly]),
+.survey-field input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+.survey-field input[type=tel]:not(.browser-default):focus:not([readonly]),
+.survey-field input[type=number]:not(.browser-default):focus:not([readonly]),
+.survey-field input[type=search]:not(.browser-default):focus:not([readonly]),
+.survey-field textarea.materialize-textarea:focus:not([readonly]) {
+  border: 1px solid $primary-blue-semi;
+  box-shadow: 0 0 5px 0 $primary-blue-semi;
+  outline: 0;
+}
+/* label underline focus color */
+.survey-field input:not([type]):disabled:not([readonly]),
+.survey-field input[type=text]:not(.browser-default):disabled:not([readonly]),
+.survey-field input[type=password]:not(.browser-default):disabled:not([readonly]),
+.survey-field input[type=email]:not(.browser-default):disabled:not([readonly]),
+.survey-field input[type=url]:not(.browser-default):disabled:not([readonly]),
+.survey-field input[type=time]:not(.browser-default):disabled:not([readonly]),
+.survey-field input[type=date]:not(.browser-default):disabled:not([readonly]),
+.survey-field input[type=datetime]:not(.browser-default):disabled:not([readonly]),
+.survey-field input[type=datetime-local]:not(.browser-default):disabled:not([readonly]),
+.survey-field input[type=tel]:not(.browser-default):disabled:not([readonly]),
+.survey-field input[type=number]:not(.browser-default):disabled:not([readonly]),
+.survey-field input[type=search]:not(.browser-default):disabled:not([readonly]),
+.survey-field textarea.materialize-textarea:disabled:not([readonly]) {
+background-color: #f6f6f6;
+}
+/* valid color */
+.survey-field input[type=text].valid {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+}
+/* invalid color */
+.survey-field input[type=text].invalid {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+}
+

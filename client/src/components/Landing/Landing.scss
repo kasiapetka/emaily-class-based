@@ -1,0 +1,20 @@
+.landing {
+  text-align: left;
+
+  &_space {
+    display: none;
+  }
+
+}
+
+@media (max-width: 426px) {
+  .landing {
+    text-align: center;
+
+    &_space {
+      display: block;
+      height: 30vw;
+    }
+  }
+}
+
