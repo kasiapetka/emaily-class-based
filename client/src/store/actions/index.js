@@ -7,6 +7,7 @@ export {
     createInit,
     loginToSurvey,
     fetchSurveys,
-    fetchReplies
+    fetchReplies,
+     deleteSurvey
 } from './survey';
 export {fetchUser} from './auth';

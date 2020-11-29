@@ -89,6 +89,51 @@ module.exports = app => {
         }
     });
 
+    app.get('/api/surveys/:surveyId', requireSurveyPassword, jsonParser, async (req, res) => {
+        const buff = Buffer.from(req.params.surveyId, 'base64');
+        const id = buff.toString('utf-8');
+        try {
+            const {limit, title, subject, body, questions, dateSend, repliesCount} = await Survey.findOne({_id: id});
+            const survey = {
+                limit,
+                title,
+                subject,
+                body,
+                questions,
+                dateSend,
+            };
+
+            if (survey.limit === repliesCount) {
+                res.status(409).send();
+            } else {
+                res.status(200).send(survey);
+            }
+        } catch (err) {
+            res.status(404).send(err);
+        }
+    });
+
+    app.delete('/api/surveys/:surveyId', requireLogin, jsonParser, async (req, res) => {
+        const buff = Buffer.from(req.params.surveyId, 'base64');
+        const id = buff.toString('utf-8');
+        let user = req.user.id;
+        try {
+            const {_reply} = await Survey.findOne({_id: id});
+            await Reply.deleteOne({_id: _reply});
+            await Survey.deleteOne({_id: id});
+            const surveys = await Survey.find({_user: user}).select({
+                questions: false,
+                _reply: false,
+                _id: false,
+                _user: false
+            });
+
+            res.status(200).send(surveys);
+        } catch (err) {
+            res.status(404).send(err);
+        }
+    });
+
     app.post('/api/surveys/reply/:surveyId', requireSurveyPassword, jsonParser, async (req, res) => {
         const reply = req.body;
         const buff = Buffer.from(req.params.surveyId, 'base64');
@@ -154,7 +199,10 @@ module.exports = app => {
         let user = req.user.id;
         try {
             const surveys = await Survey.find({_user: user}).select({
-                questions: false
+                questions: false,
+                _reply: false,
+                _id: false,
+                _user: false
             });
             res.status(200).send(surveys);
         } catch (err) {

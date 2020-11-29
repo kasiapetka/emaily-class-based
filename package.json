@@ -25,7 +25,8 @@
     "mongoose": "^5.9.27",
     "nodemon": "^2.0.4",
     "passport": "^0.4.1",
-    "passport-google-oauth20": "^2.0.0"
+    "passport-google-oauth20": "^2.0.0",
+    "sendgrid": "^5.2.3"
   },
   "devDependencies": {
     "prettier": "^2.1.0"

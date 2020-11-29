@@ -10,6 +10,7 @@ import {
     FETCH_SURVEYS,
     CREATE_INIT,
     SURVEY_FILL_LOGIN,
+    DELETE_SURVEY,
 } from "./types";
 
 import axios from "axios";
@@ -86,6 +87,17 @@ export const createSurvey =(values)=>
         try {
             const res = await axios.post('/api/surveys', values);
             dispatch({type: CREATE_SURVEY, payload: res.data});
+        } catch (error) {
+            dispatch({type: SURVEY_FAILED, error: error.response.status});
+        }
+    };
+
+export const deleteSurvey =(id)=>
+    async dispatch => {
+        dispatch({type: LOADING_START});
+        try {
+            const res = await axios.delete('/api/surveys/'+id);
+            dispatch({type: DELETE_SURVEY, payload: res.data});
         } catch (error) {
             dispatch({type: SURVEY_FAILED, error: error.response.status});
         }

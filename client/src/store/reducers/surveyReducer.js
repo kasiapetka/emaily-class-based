@@ -8,6 +8,7 @@ import {
     SURVEY_FAILED,
     LOADING_START,
     CREATE_INIT,
+    DELETE_SURVEY,
     SURVEY_FILL_LOGIN, FETCH_REPLIES
 } from "../actions/types";
 
@@ -83,6 +84,14 @@ const surveyReducer = (state = initialState, action) => {
                 surveyCreatedURL: action.payload.URL,
                 surveyCreatedPass: action.payload.password,
                 currentPage: PAGES[0]
+            };
+        case DELETE_SURVEY:
+            return{
+                ...state,
+                loading: false,
+                surveys: [
+                    ...action.payload,
+                ],
             };
         case SURVEY_FILL_LOGIN:
             return {

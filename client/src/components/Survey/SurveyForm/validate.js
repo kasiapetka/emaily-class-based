@@ -28,6 +28,9 @@ const validate = values => {
             if (!question.question || !question.question.length) {
                 questionErrors.question = 'Required';
                 questionsArrayErrors[index] = questionErrors
+            }else if(question.id !== 0 && (!question.answers || question.answers?.length === 0)){
+                questionErrors.question = 'Add answers here';
+                questionsArrayErrors[index] = questionErrors
             }
 
             if (question && question.answers && question.answers.length) {

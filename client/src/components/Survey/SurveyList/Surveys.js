@@ -26,7 +26,7 @@ const Surveys = (props) => {
                 limit={survey.limit}
                 password={survey.password}
                 URL={survey.URL}
-                key={survey._id}
+                key={index}
             />
         });
     }
