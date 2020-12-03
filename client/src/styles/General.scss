@@ -15,6 +15,10 @@
   }
 }
 
+.pointer{
+  cursor: pointer;
+}
+
 @media (max-width: 426px) {
   .bg {
     &-primary {

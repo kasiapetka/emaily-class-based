@@ -32,7 +32,7 @@ class SurveyForm extends Component {
                 return <SurveyFormLastPage previousPage={this.props.goToPrevPage}
                                             onSubmit={this.onSubmit}/>;
             default:
-                return <p>Error</p>
+                return <ErrorMessage/>;
         }
     }
 
