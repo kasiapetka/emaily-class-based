@@ -3,11 +3,6 @@ import React from "react";
 
 export default ({answers}) => {
 
-    let sum = 0;
-    answers.map(a => {
-        sum += a.count;
-    });
-
     const d = answers.map(a => {
         return {
             value: a.count,
@@ -16,7 +11,6 @@ export default ({answers}) => {
     });
 
     const data = [...d];
-
 
     return (
         <div className="chart">

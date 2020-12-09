@@ -1,13 +1,13 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {connect} from "react-redux";
 import {RiUserReceived2Fill as Login, RiUserShared2Fill as Logout, RiMailStarFill as Logo} from "react-icons/ri";
 import {Link} from "react-router-dom";
 import './Header.scss';
 
-class Header extends Component {
+const Header = ({auth}) => {
 
-    renderContent() {
-        switch (this.props.auth) {
+    const renderContent = () => {
+        switch (auth) {
             case null:
                 return;
             case false:
@@ -15,22 +15,21 @@ class Header extends Component {
             default:
                 return <li><a href={"/api/logout"} className="flex flex-middle"><Logout/>Logout</a></li>;
         }
-    }
+    };
 
-    render() {
-        return (
-            <nav>
-                <div className="nav-wrapper indigo darken-4 header flex flex-justify-between">
-                    <Link to={this.props.auth ? '/surveys' : '/'}
-                          className="flex flex-middle header_logo"><Logo/>Emaily</Link>
-                    <ul className='header_buttons'>
-                        {this.renderContent()}
-                    </ul>
-                </div>
-            </nav>
-        );
-    }
-}
+    return (
+        <nav>
+            <div className="nav-wrapper indigo darken-4 header flex flex-justify-between">
+                <Link to={auth ? '/surveys' : '/'}
+                      className="flex flex-middle header_logo"><Logo/>Emaily</Link>
+                <ul className='header_buttons'>
+                    {renderContent()}
+                </ul>
+            </div>
+        </nav>
+    );
+
+};
 
 function mapStateToProps({auth}) {
     return {auth};

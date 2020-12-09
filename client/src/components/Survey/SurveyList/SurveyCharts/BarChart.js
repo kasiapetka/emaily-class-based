@@ -10,7 +10,7 @@ const BarChart =({answers})=> {
                 data: [...d]
             }
         ],
-        []
+        [d]
     )
     const axes = React.useMemo(
         () => [
