@@ -113,4 +113,4 @@ export default reduxForm({
     destroyOnUnmount: false,
     forceUnregisterOnUnmount: true,
     validate
-})(connect(null, actions)(SurveyFormThirdPage));
+})(SurveyFormThirdPage);

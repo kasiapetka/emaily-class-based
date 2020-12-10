@@ -5,33 +5,12 @@ import {Link} from "react-router-dom";
 import validate from './validate'
 import SurveyField from "./SurveyField/SurveyField";
 import {connect} from "react-redux";
-import * as actions from "../../../store/actions";
 import SurveyFormSuccess from "./SurveyFormSuccess";
 
 const renderError = ({meta: {touched, error}}) =>
     touched && error ? <span className="validation-message">{error}</span> : false;
 
 class SurveyFormFirstPage extends Component {
-
-    limitDetails = () => {
-        if (this.props.values?.specifyRecipients) {
-            return (
-                <div>
-                    provide emails
-                </div>
-            )
-        } else if (!this.props.values?.specifyRecipients) {
-            return (
-                <div>
-                    <Field name="limit"
-                           component={SurveyField}
-                           type="number"
-                           label="Set limit for the number of replies"
-                    />
-                </div>
-            )
-        }
-    };
 
     render() {
         let content;
@@ -67,18 +46,13 @@ class SurveyFormFirstPage extends Component {
                                     </p>
                                     <Field name="password" component={renderError}/>
                                 </div>
-                                {/*<div>*/}
-                                {/*    <label>Do You want to specify the recipients?</label>*/}
-                                {/*    <p>*/}
-                                {/*        <label>*/}
-                                {/*            <Field className="filled-in" name="specifyRecipients" component="input"*/}
-                                {/*                   type="checkbox"*/}
-                                {/*                   value={this.props.values?.specifyRecipients} checked={this.props.values?.specifyRecipients ? this.props.values?.specifyRecipients : false }/>*/}
-                                {/*            <span>Yes</span>*/}
-                                {/*        </label>*/}
-                                {/*    </p>*/}
-                                {/*</div>*/}
-                                {this.limitDetails()}
+                                <div>
+                                    <Field name="limit"
+                                           component={SurveyField}
+                                           type="number"
+                                           label="Set limit for the number of replies"
+                                    />
+                                </div>
                                 <div className="flex flex-justify-between buttons">
                                     <Link to="/surveys" className="btn large red darken-4">Cancel</Link>
                                     <button type="submit" className="btn large indigo darken-4">Next <RiCheckFill/>
@@ -111,4 +85,4 @@ export default reduxForm({
     destroyOnUnmount: false,
     forceUnregisterOnUnmount: true,
     validate
-})(connect(mapStateToProps, actions)(SurveyFormFirstPage));
+})(connect(mapStateToProps)(SurveyFormFirstPage));

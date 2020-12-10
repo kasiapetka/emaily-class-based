@@ -18,8 +18,14 @@ class SurveyReplies extends Component {
                     <div key={index} className="col l7 m8 s12" style={{marginTop: '15px'}}>
                         <div className="reply">
                             <h5 style={{marginBottom: '1.5rem'}}>{index + 1}. {reply.answers.question}</h5>
-                            <ul className="collection">{reply.answers.values.map((a,i) => a ? <li key={i}
-                                                                                              className="collection-item" >{a}</li> : null)}</ul>
+                            {
+                                reply.answers.answers
+                                ?
+                                    <ul className="collection">{reply.answers.values.map((a,i) => a ? <li key={i}
+                                                                                                          className="collection-item" >{a}</li> : null)}</ul>
+                                    :
+                                    <p>No replies yet.</p>
+                            }
                         </div>
                     </div>
                 </div>
