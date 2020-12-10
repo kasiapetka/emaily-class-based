@@ -19,7 +19,7 @@ class SurveyReplies extends Component {
                         <div className="reply">
                             <h5 style={{marginBottom: '1.5rem'}}>{index + 1}. {reply.answers.question}</h5>
                             {
-                                reply.answers.answers
+                                reply.answers.values?.length !== 0
                                 ?
                                     <ul className="collection">{reply.answers.values.map((a,i) => a ? <li key={i}
                                                                                                           className="collection-item" >{a}</li> : null)}</ul>
